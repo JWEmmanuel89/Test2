@@ -12,9 +12,9 @@ func middlewareA(next http.Handler) http.Handler {
 		// This is executed going to the handler
 		log.Println("Executing first middleware going to handler")
 		// Showing flow by exiting after first middleware is executed
-		/*if r.URL.Path == "/exit" {
+		if r.URL.Path == "/exit" {
 			return
-		}*/
+		}
 		next.ServeHTTP(w, r)
 		// This is executed going back to the client
 		log.Println("Executing first middleware going back to client")
@@ -26,9 +26,9 @@ func middlewareB(next http.Handler) http.Handler {
 		// This is executed going to the handler
 		log.Println("Executing second middleware going to handler")
 		// Showing flow by exiting after second middleware is executed
-		if r.URL.Path == "/exit" {
+		/*if r.URL.Path == "/exit" {
 			return
-		}
+		}*/
 		next.ServeHTTP(w, r)
 		// This is executed going back to the client
 		log.Println("Executing secong middleware going back to the client")
